@@ -1,0 +1,101 @@
+-- Dead Oil Model --
+-- 2D case -- 
+
+VERBOSE
+-- ALL BRIEF /
+DEBUG DEBUG /
+
+FLUID
+DEADOIL
+/
+
+COUPLING
+--FIM(FLOW{NATURAL},WELLS)[GMRES CPR0 1e-5 200 50]
+FIM(FLOW{NATURAL},WELLS)[SUPERLU]
+/
+
+
+WELL_RATES_AT
+STC 
+--RC
+/
+
+DIMENS
+6045 1 1 /
+
+INCLUDE
+Volume.DAT
+/
+
+INCLUDE
+Depth.DAT
+/
+
+INCLUDE
+Porosity.DAT
+/
+
+INCLUDE
+Transmissibility.DAT
+/
+
+INCLUDE
+PVDO.DAT
+/
+
+INCLUDE
+PVTW.DAT
+/
+
+INCLUDE
+SWOF.DAT
+/
+
+RTEMP
+373.15 /
+/
+
+SCOND
+--p      t        g
+1.0135 288.89 9.80665e-5/
+/
+
+EQUIL
+--ref depth, ref pressure
+3280 200 /
+/
+
+PBUB
+80 /
+
+
+SWAT
+1.0 /
+
+FACILITY
+5e-3 30 1e+5 /
+/
+
+OUTPUT
+HDF5 REPORT "Output"
+/
+
+OUTPUTVARS
+pres sat viscosity mobility pv viscosity
+/
+
+
+TUNING
+0.01  100.0  *2  /
+/
+
+INCLUDE
+Well.DAT
+/
+
+
+TSTEP
+10*1/
+
+
+END

@@ -1,0 +1,160 @@
+-- =============================================================================
+-- Definition of optimization problem
+-- =============================================================================
+problem_name
+Template_for_python_GNN_Surrogate_Haoyu
+/
+
+number_of_objectives
+1
+/
+
+number_of_constraints
+0
+/
+
+constraint_handling_type
+PENALTY
+/
+
+constraint_handling_penalty_parameter
+1e-2 /
+/
+
+number_of_real_variables
+30
+/
+
+number_of_integer_variables
+0
+/
+
+number_of_categorical_variables
+0
+/
+
+upper_bound_continuous_variables
+20*2935.6 5*310 5*150
+/
+
+lower_bound_continuous_variables
+20*16.4 5*210 5*50
+/
+
+initial_random_seed
+5000
+/
+
+initial_seed_solutions
+NO
+--YES initial_solutions.in 1
+/
+
+-- =============================================================================
+-- Particle Swarm Optimization options 
+-- =============================================================================
+
+pso_swarm_size
+24
+/
+
+pso_w
+0.729
+/
+
+pso_c1
+2.05
+/
+
+pso_c2
+2.05
+/
+
+pso_swarm_connectivity_index
+24
+-- algo doesn't use this if topology is 1
+-- algo use this to calculate the connection per iteration if topology is 2
+/
+
+pso_personalBest_array_size
+1
+/
+
+pso_mutation_rate
+0.1
+/
+
+pso_neighbourhood_type
+2
+-- if 1 global topology
+-- if 2 random neighborhood topology
+/
+
+gbest_index
+0
+/
+
+-- =============================================================================
+-- Improved Latin Hypercube Sampling options 
+-- =============================================================================
+
+ilhs_pop_size
+24
+--48
+/
+
+ilhs_entropy
+0.9
+/
+
+-- =============================================================================
+-- Differential Evolution options 
+-- =============================================================================
+
+de_popsize
+60
+/
+
+-- mutation factor
+de_f_factor
+0.5
+/
+
+-- recombination rate
+de_crossover_factor
+0.7
+/
+
+de_strategy
+8
+/
+
+-- =============================================================================
+-- System variables related to the problem 
+-- =============================================================================
+
+number_of_tasks
+4
+/
+
+execution_mode
+gnu_parallel_mode
+--mpiexec_mode
+--serial_mode
+--pbs_mode
+--slurm_mode
+/
+
+maximum_job_timeout_in_seconds
+2000
+/
+
+-- =============================================================================
+-- Algorithm 
+-- =============================================================================
+
+algorithm_script
+algo_name de algo_termination_criterion cycles 50 variables all /
+/
+
+
